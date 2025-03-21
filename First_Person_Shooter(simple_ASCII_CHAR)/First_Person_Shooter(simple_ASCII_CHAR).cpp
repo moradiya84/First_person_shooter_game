@@ -1,15 +1,13 @@
-// First_Person_Shooter(simple_ASCII_CHAR).cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include <vector>
 #include <utility>
 #include <algorithm>
 #include <chrono>
-using namespace std;
-
 #include <stdio.h>
 #include <Windows.h>
+using namespace std;
+
+
 int nScreenWidth = 120;
 int nScreenHeight = 40;
 float fPlayerX = 8.0f;
@@ -50,7 +48,6 @@ int main(){
 	auto tp1 = chrono::system_clock::now();
 	auto tp2 = chrono::system_clock::now();
 
-	//Game loop
 	while (1) {
 
 		tp2 = chrono::system_clock::now();
@@ -72,7 +69,6 @@ int main(){
 			}
 		}
 
-		// Handle backwards movement & collision
 		if (GetAsyncKeyState((unsigned short)'S') & 0x8000)
 		{
 			fPlayerX -= sinf(fplayerA) * 5.0f * fElapsedTime;;
@@ -109,7 +105,6 @@ int main(){
 					for (int tx = 0; tx < 2; tx++)
 						for (int ty = 0; ty < 2; ty++)
 						{
-							// Angle of corner to eye
 							float vy = (float)nTestY + ty - fPlayerY;
 							float vx = (float)nTestX + tx - fPlayerX;
 							float d = sqrt(vx * vx + vy * vy);
